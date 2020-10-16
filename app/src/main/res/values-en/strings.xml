@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">homework_1</string>
+    <string name="start">New Game</string>
+    <string name="score">Score</string>
+    <string name="draw">Draw!</string>
+    <string name="firstWin">First player win!</string>
+    <string name="secondWin">Second player win!</string>
+    <string name="endGame">Start new game!</string>
+    <string name="reset">Reset</string>
+
+</resources>

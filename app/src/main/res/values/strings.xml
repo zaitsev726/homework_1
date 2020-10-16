@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">homework_1</string>
+    <string name="start">Новая игра</string>
+    <string name="score">Счет</string>
+    <string name="draw">Ничья!</string>
+    <string name="firstWin">Первый игрок победил!</string>
+    <string name="secondWin">Второй игрок победил!</string>
+    <string name="endGame">Начните новую игру!</string>
+    <string name="reset">Заново</string>
+</resources>
