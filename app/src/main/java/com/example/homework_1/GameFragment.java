@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,11 @@ import java.util.Objects;
 
 
 public class GameFragment extends Fragment {
+    private final String idFirstScore = "FIRST_SCORE";
+    private final String idSecondScore = "SECOND_SCORE";
+    private final String idButton = "BUTTON_";
+    private final String idTurn = "PLAYER_TURN";
+
     private TicTacToe ticTacToe;
 
     private Button[][] buttons = new Button[3][3];
@@ -36,6 +42,10 @@ public class GameFragment extends Fragment {
 
     private TextView firstPlayerScore;
     private TextView secondPlayerScore;
+
+    private int first_score = 0;
+    private int second_score = 0;
+
 
     public GameFragment() {
         // Required empty public constructor
@@ -81,11 +91,42 @@ public class GameFragment extends Fragment {
         });
 
 
-
         setEditTextListeners((EditText) view.findViewById(R.id.player1_name));
         setEditTextListeners((EditText) view.findViewById(R.id.player2_name));
 
+        if(savedInstanceState != null){
+            first_score = savedInstanceState.getInt(idFirstScore);
+            addingScore(firstPlayerScore, first_score);
+            second_score = savedInstanceState.getInt(idSecondScore);
+            addingScore(secondPlayerScore, second_score);
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    String buttonID = idButton + i + j;
+                    buttons[i][j].setText(savedInstanceState.getString(buttonID));
+                }
+            }
+            firstPlayerTurn = savedInstanceState.getBoolean(idTurn);
+        }
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt(idFirstScore, first_score);
+        outState.putInt(idSecondScore, second_score);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                String buttonID = idButton + i + j;
+                outState.putString(buttonID, String.valueOf(buttons[i][j].getText()));
+            }
+        }
+        outState.putBoolean(idTurn, firstPlayerTurn);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
     }
 
     private void addListener(@NonNull final Button button) {
@@ -143,14 +184,16 @@ public class GameFragment extends Fragment {
     //Победа первого игрока
     private void firstPlayerWin() {
         String first = firstPlayerName + " " + getResources().getString(R.string.win);
-        addingScore(firstPlayerScore);
+        first_score ++;
+        addingScore(firstPlayerScore, first_score);
         showToast(first);
     }
 
     //Победа второго игрока
     private void secondPlayerWin() {
         String second = secondPlayerName + " " + getResources().getString(R.string.win);
-        addingScore(secondPlayerScore);
+        second_score ++;
+        addingScore(secondPlayerScore, second_score);
         showToast(second);
     }
 
@@ -160,11 +203,10 @@ public class GameFragment extends Fragment {
         toast.show();
     }
 
+    //Обновляет счет
     @SuppressLint("SetTextI18n")
-    private void addingScore(TextView view){
-        String current = String.valueOf(view.getText()).split(" ")[1];
-        int next = Integer.parseInt(current) + 1;
-        view.setText(": " + next);
+    private void addingScore(TextView view, int score){
+        view.setText(": " + score);
     }
     //Перезапуск игры
     private void reset() {
@@ -204,7 +246,6 @@ public class GameFragment extends Fragment {
 
                                               imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                                               editText.setCursorVisible(false);
-
                                               return true;
                                           }
                                           return false;

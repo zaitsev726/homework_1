@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
                 fragment = ScoreFragment.newInstance();
             } else
                 throw new IllegalArgumentException();
+            //ft.remove(fragment);
+
             ft.replace(R.id.fragment_container, fragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.addToBackStack(null);
