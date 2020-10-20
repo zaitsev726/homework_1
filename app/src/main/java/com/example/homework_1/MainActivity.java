@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
         if (container != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             Fragment fragment = null;
-            if(text.equals(getResources().getString(R.string.start))){
+            if (text.equals(getResources().getString(R.string.start))) {
                 fragment = GameFragment.newInstance();
-            }else if (text.equals(getResources().getString(R.string.score))){
+            } else if (text.equals(getResources().getString(R.string.score))) {
                 fragment = ScoreFragment.newInstance();
-            }else
+            } else
                 throw new IllegalArgumentException();
             ft.replace(R.id.fragment_container, fragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

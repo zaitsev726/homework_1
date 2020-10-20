@@ -3,9 +3,10 @@
     <string name="start">New Game</string>
     <string name="score">Score</string>
     <string name="draw">Draw!</string>
-    <string name="firstWin">First player win!</string>
-    <string name="secondWin">Second player win!</string>
+    <string name="win">win!</string>
     <string name="endGame">Start new game!</string>
     <string name="reset">Reset</string>
-
+    <string name="Player1">Player 1</string>
+    <string name="start_score">: 0</string>
+    <string name="Player2">Player 2</string>
 </resources>

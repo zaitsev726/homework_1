@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +27,8 @@ public class GameFragment extends Fragment {
 
     private int countRound = 0;
 
-    private TextView player1;
-    private TextView player2;
+    private String firstPlayerName = getResources().getResourceName(R.string.Player1);
+    private String secondPlayerName = getResources().getResourceName(R.string.Player2);
 
     public GameFragment() {
         // Required empty public constructor
@@ -67,10 +69,14 @@ public class GameFragment extends Fragment {
             }
         });
 
+
+        setEditTextListeners((EditText) view.findViewById(R.id.player1_name));
+        setEditTextListeners((EditText) view.findViewById(R.id.player2_name));
+
         super.onViewCreated(view, savedInstanceState);
     }
 
-    private void addListener(@NonNull final Button button){
+    private void addListener(@NonNull final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +114,7 @@ public class GameFragment extends Fragment {
                     } else {
                         firstPlayerTurn = !firstPlayerTurn;
                     }
-                }else {
+                } else {
                     String resetGame = getResources().getString(R.string.endGame);
                     showToast(resetGame);
                 }
@@ -116,27 +122,32 @@ public class GameFragment extends Fragment {
         });
     }
 
+    //Ничья
     private void draw() {
         String draw = getResources().getString(R.string.draw);
         showToast(draw);
     }
 
+    //Победа первого игрока
     private void firstPlayerWin() {
-        String first = getResources().getString(R.string.firstWin);
+        String first = firstPlayerName + " " + getResources().getString(R.string.win);
         showToast(first);
     }
 
+    //Победа второго игрока
     private void secondPlayerWin() {
-        String second = getResources().getString(R.string.secondWin);
+        String second = secondPlayerName + " " + getResources().getString(R.string.win);
         showToast(second);
     }
 
-    private void showToast(String str){
+    //Показывает уведомление str на экране
+    private void showToast(String str) {
         Toast toast = Toast.makeText(getContext(), str, Toast.LENGTH_LONG);
         toast.show();
     }
 
-    private void reset(){
+    //Перезапуск игры
+    private void reset() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 buttons[i][j].setText("");
@@ -146,5 +157,40 @@ public class GameFragment extends Fragment {
         countRound = 0;
         isGaming = true;
         firstPlayerTurn = true;
+    }
+
+    /**
+     * Устанавливаем 2 listener на editText
+     * Первый, чтобы при нажатии Enter или Down убирался курсор
+     * Второй, чтобы при нажатии на текст появлялся курсор
+     * @param editText
+     */
+    private void setEditTextListeners(@NonNull final EditText editText){
+
+        editText.setOnKeyListener(new View.OnKeyListener() {
+                                         public boolean onKey(View v, int keyCode, KeyEvent event) {
+                                             if (event.getAction() == KeyEvent.ACTION_DOWN &&
+                                                     (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                                                 String playerName = editText.getText().toString();
+                                                 if(editText.getId() == R.id.player1_name){
+                                                     firstPlayerName = playerName;
+                                                 } else if (editText.getId() == R.id.player2_name){
+                                                     secondPlayerName = playerName;
+                                                 } else
+                                                     throw new NullPointerException();
+
+                                                 editText.setCursorVisible(false);
+                                                 return true;
+                                             }
+                                             return false;
+                                         }
+                                     }
+        );
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setCursorVisible(true);
+            }
+        });
     }
 }

@@ -4,30 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/first_icon"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentStart="true"
+            />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/second_icon"
+            android:layout_below="@+id/first_icon"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <EditText
             android:id="@+id/player1_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Player 1: 0"
-            android:textSize="30sp" />
-        <TextView
+            android:layout_height="60dp"
+            android:text="@string/Player1"
+            android:maxLines="1"
+            android:maxLength="@integer/maxLength"
+            android:inputType="textPersonName"
+            android:layout_toEndOf="@+id/first_icon"
+            android:textSize="30sp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
             android:id="@+id/player2_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_below="@+id/player1_name"
-            android:text="Player 2: 0"
+            android:text="@string/Player2"
+            android:maxLines="1"
+            android:maxLength="@integer/maxLength"
+            android:inputType="textPersonName"
+            android:layout_toEndOf="@+id/second_icon"
             android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/first_score"
+            android:text="@string/start_score"
+            android:textSize="30sp"
+            android:layout_toEndOf="@+id/player1_name"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/second_score"
+            android:text="@string/start_score"
+            android:textSize="30sp"
+            android:layout_toEndOf="@+id/player2_name"
+            android:layout_below="@+id/first_score"
+            android:gravity="center"
+            android:padding="5dp"
+            />
+
+
         <Button
             android:id="@+id/button_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="33dp"
+            android:layout_marginEnd="15dp"
             android:text="@string/reset" />
     </RelativeLayout>
     <LinearLayout
