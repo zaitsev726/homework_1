@@ -6,7 +6,8 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928b2cd0-86f9-4b18-94c0-4e17e392d061" name="Default Changelist" comment="Убирается редактирование имени при нажатии пробела&#10;Добавлено изменение счета">
+    <list default="true" id="928b2cd0-86f9-4b18-94c0-4e17e392d061" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_game.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,8 +17,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/GameFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/GameFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/integers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/integers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +66,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout-land" />
     <property name="settings.editor.selected.configurable" value="consents" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.804816694">
       <recent name="com.example.homework_1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Programming\AndroidStudioProjects\homework_1\app\src\main\res\layout-land" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -181,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603178255661</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Чекпоинт">
+      <created>1603182837026</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603182837026</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,23 +208,32 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавлено редактирование имени игрока" />
     <MESSAGE value="Убирается редактирование имени при нажатии пробела&#10;Добавлено изменение счета" />
-    <option name="LAST_COMMIT_MESSAGE" value="Убирается редактирование имени при нажатии пробела&#10;Добавлено изменение счета" />
+    <MESSAGE value="Чекпоинт" />
+    <option name="LAST_COMMIT_MESSAGE" value="Чекпоинт" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1603182818710">
+    <state x="552" y="178" key="#Notifications" timestamp="1603183061455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603182818710" />
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603183061455" />
+    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1603182876773">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603182876773" />
     <state x="804" y="248" key="#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080" timestamp="1602749670846" />
+    <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog" timestamp="1603183678530">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603183678530" />
     <state x="813" y="356" key="AndroidCreateXmlResourceDialog" timestamp="1603173488799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="813" y="356" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603173488799" />
     <state x="858" y="370" key="AndroidCreateXmlResourceDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1602753082350" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1603178661952">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1603182835722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603178661952" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603182835722" />
     <state x="779" y="295" key="FileChooserDialogImpl" timestamp="1602740296316">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>

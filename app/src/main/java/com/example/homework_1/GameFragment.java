@@ -68,6 +68,7 @@ public class GameFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         firstPlayerName = getResources().getString(R.string.Player1);
         secondPlayerName = getResources().getString(R.string.Player2);
 
