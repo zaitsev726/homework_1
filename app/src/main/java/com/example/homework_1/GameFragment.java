@@ -25,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
+
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Objects;
@@ -34,27 +34,13 @@ import static android.app.Activity.RESULT_OK;
 
 
 public class GameFragment extends Fragment {
-    private final String idFirstScore = "FIRST_SCORE";
-    private final String idSecondScore = "SECOND_SCORE";
-    private final String idButton = "BUTTON_";
-    private final String idTurn = "PLAYER_TURN";
-    private final String idFirstIcon = "FIRST_ICON";
-    private final String idSecondIcon = "SECOND_ICON";
     private final int PICK_IMAGE = 1;
 
     private int imageViewId = 0;
 
-    private TicTacToe ticTacToe;
+    private static TicTacToe ticTacToe;
 
     private Button[][] buttons = new Button[3][3];
-
-    private boolean firstPlayerTurn = true;
-    private boolean isGaming = true;
-
-    private int countRound = 0;
-
-    private String firstPlayerName;
-    private String secondPlayerName;
 
     private TextView firstPlayerScore;
     private TextView secondPlayerScore;
@@ -63,16 +49,12 @@ public class GameFragment extends Fragment {
     private ImageView secondIconView;
 
 
-    private int first_score = 0;
-    private int second_score = 0;
-
-
-
     public GameFragment() {
         // Required empty public constructor
     }
 
     public static GameFragment newInstance() {
+        ticTacToe = new TicTacToe();
         Bundle args = new Bundle();
         GameFragment fragment = new GameFragment();
         fragment.setArguments(args);
@@ -82,7 +64,8 @@ public class GameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ticTacToe = new TicTacToe();
+        if(ticTacToe == null)
+            ticTacToe = new TicTacToe();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game, container, false);
     }
@@ -90,14 +73,19 @@ public class GameFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        firstPlayerName = getResources().getString(R.string.Player1);
-        secondPlayerName = getResources().getString(R.string.Player2);
+        if (ticTacToe.getFirstPlayerName() == null) {
+            ticTacToe.setFirstPlayerName(getResources().getString(R.string.Player1));
+        }
+        if (ticTacToe.getSecondPlayerName() == null) {
+            ticTacToe.setSecondPlayerName(getResources().getString(R.string.Player2));
+        }
 
         firstPlayerScore = view.findViewById(R.id.first_score);
         secondPlayerScore = view.findViewById(R.id.second_score);
 
         firstIconView = view.findViewById(R.id.first_icon);
         secondIconView = view.findViewById(R.id.second_icon);
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 String buttonID = "button_" + i + j;
@@ -107,11 +95,12 @@ public class GameFragment extends Fragment {
             }
         }
 
-        Button resetButton = view.findViewById(R.id.button_reset);
+        final Button resetButton = view.findViewById(R.id.button_reset);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reset();
+                ticTacToe.reset();
             }
         });
 
@@ -122,71 +111,48 @@ public class GameFragment extends Fragment {
         setImageViewListener(firstIconView);
         setImageViewListener(secondIconView);
 
-        if (savedInstanceState != null) {
-            first_score = savedInstanceState.getInt(idFirstScore);
-            addingScore(firstPlayerScore, first_score);
-            second_score = savedInstanceState.getInt(idSecondScore);
-            addingScore(secondPlayerScore, second_score);
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    String buttonID = idButton + i + j;
-                    buttons[i][j].setText(savedInstanceState.getString(buttonID));
+        //Восстановление состояния из ticTacToe
+            addingScore(firstPlayerScore, ticTacToe.getFirst_score());
+            addingScore(secondPlayerScore, ticTacToe.getSecond_score());
+            if (ticTacToe.getGameField() != null) {
+                String[][] field = ticTacToe.getGameField();
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        buttons[i][j].setText(field[i][j]);
+                    }
                 }
-            }
-            firstPlayerTurn = savedInstanceState.getBoolean(idTurn);
 
-            Bitmap bitmap1 = savedInstanceState.getParcelable(idFirstIcon);
-            firstIconView.setImageBitmap(bitmap1);
-
-            Bitmap bitmap2 = savedInstanceState.getParcelable(idSecondIcon);
-            secondIconView.setImageBitmap(bitmap2);
+            firstIconView.setImageBitmap(ticTacToe.getFirstPlayerIcon());
+            secondIconView.setImageBitmap(ticTacToe.getSecondPlayerIcon());
         }
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt(idFirstScore, first_score);
-        outState.putInt(idSecondScore, second_score);
+        //сохранение текущего состояния
+        String[][] field = new String[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                String buttonID = idButton + i + j;
-                outState.putString(buttonID, String.valueOf(buttons[i][j].getText()));
+                field[i][j] = buttons[i][j].getText().toString();
             }
         }
-
-        BitmapDrawable drawable1 = (BitmapDrawable) firstIconView.getDrawable();
-        Bitmap bitmap1 = drawable1.getBitmap();
-        outState.putParcelable(idFirstIcon, bitmap1);
-
-        BitmapDrawable drawable2 = (BitmapDrawable) secondIconView.getDrawable();
-        Bitmap bitmap2 = drawable2.getBitmap();
-        outState.putParcelable(idSecondIcon, bitmap2);
-
-        outState.putBoolean(idTurn, firstPlayerTurn);
+        ticTacToe.saveFieldInstance(field);
         super.onSaveInstanceState(outState);
     }
 
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-    }
 
+    //Обработчик нажатия на кнопку игры
     private void addListener(@NonNull final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isGaming) {
+                if (ticTacToe.isGaming()) {
                     if (!button.getText().equals("")) {
                         return;
                     }
 
-                    if (firstPlayerTurn) {
-                        button.setText("X");
-                    } else
-                        button.setText("O");
-
-                    countRound++;
+                    button.setText(ticTacToe.getTurn());
 
                     String[][] field = new String[3][3];
                     for (int i = 0; i < 3; i++) {
@@ -195,20 +161,16 @@ public class GameFragment extends Fragment {
                         }
                     }
 
-
                     if (ticTacToe.checkForWin(field)) {
-                        if (firstPlayerTurn) {
+                        if (ticTacToe.isFirstPlayerTurn()) {
                             firstPlayerWin();
-                            isGaming = false;
                         } else {
                             secondPlayerWin();
-                            isGaming = false;
                         }
-                    } else if (countRound == 9) {
+                    } else if (ticTacToe.getCountRound() == 9) {
                         draw();
-                        isGaming = false;
-                    } else {
-                        firstPlayerTurn = !firstPlayerTurn;
+                    } else{
+                        ticTacToe.changeTurn();
                     }
                 } else {
                     String resetGame = getResources().getString(R.string.endGame);
@@ -220,23 +182,24 @@ public class GameFragment extends Fragment {
 
     //Ничья
     private void draw() {
+        ticTacToe.draw();
         String draw = getResources().getString(R.string.draw);
         showToast(draw);
     }
 
     //Победа первого игрока
     private void firstPlayerWin() {
-        String first = firstPlayerName + " " + getResources().getString(R.string.win);
-        first_score++;
-        addingScore(firstPlayerScore, first_score);
+        String first = ticTacToe.getFirstPlayerName() + " " + getResources().getString(R.string.win);
+        ticTacToe.firstPlayerWin();
+        addingScore(firstPlayerScore, ticTacToe.getFirst_score());
         showToast(first);
     }
 
     //Победа второго игрока
     private void secondPlayerWin() {
-        String second = secondPlayerName + " " + getResources().getString(R.string.win);
-        second_score++;
-        addingScore(secondPlayerScore, second_score);
+        String second = ticTacToe.getSecondPlayerName() + " " + getResources().getString(R.string.win);
+        ticTacToe.secondPlayerWin();
+        addingScore(secondPlayerScore, ticTacToe.getSecond_score());
         showToast(second);
     }
 
@@ -259,10 +222,6 @@ public class GameFragment extends Fragment {
                 buttons[i][j].setText("");
             }
         }
-
-        countRound = 0;
-        isGaming = true;
-        firstPlayerTurn = true;
     }
 
     /**
@@ -279,9 +238,9 @@ public class GameFragment extends Fragment {
                                                   (keyCode == KeyEvent.KEYCODE_ENTER)) {
                                               String playerName = editText.getText().toString();
                                               if (editText.getId() == R.id.player1_name) {
-                                                  firstPlayerName = playerName;
+                                                  ticTacToe.setFirstPlayerName(playerName);
                                               } else if (editText.getId() == R.id.player2_name) {
-                                                  secondPlayerName = playerName;
+                                                  ticTacToe.setSecondPlayerName(playerName);
                                               } else
                                                   throw new NullPointerException();
 
@@ -310,11 +269,11 @@ public class GameFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(imageView.getId() == R.id.first_icon){
+                if (imageView.getId() == R.id.first_icon) {
                     imageViewId = 1;
-                }else if (imageView.getId() == R.id.second_icon){
+                } else if (imageView.getId() == R.id.second_icon) {
                     imageViewId = 2;
-                }else
+                } else
                     throw new NullPointerException();
                 Intent photoIntent = new Intent(Intent.ACTION_PICK);
                 photoIntent.setType("image/*");
@@ -336,8 +295,10 @@ public class GameFragment extends Fragment {
                     final InputStream imageStream = Objects.requireNonNull(getActivity()).getContentResolver().openInputStream(imageUri);
                     final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                     if (imageViewId == 1) {
+                        ticTacToe.setFirstPlayerIcon(selectedImage);
                         firstIconView.setImageBitmap(selectedImage);
                     } else if (imageViewId == 2) {
+                        ticTacToe.setSecondPlayerIcon(selectedImage);
                         secondIconView.setImageBitmap(selectedImage);
                     }
 

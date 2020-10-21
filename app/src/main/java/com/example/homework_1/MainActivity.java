@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements MenuFragment.Listener {
-
+    private final String GAME_FRAGMENT = "GAME_TAG";
+    private final String SCORE_FRAGMENT = "SCORE_TAG";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,16 +25,24 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
         if (container != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             Fragment fragment = null;
+            Fragment old = null;
+            String tag = null;
             if (text.equals(getResources().getString(R.string.start))) {
                 fragment = GameFragment.newInstance();
+                old = getSupportFragmentManager().findFragmentByTag(GAME_FRAGMENT);
+                tag = GAME_FRAGMENT;
             } else if (text.equals(getResources().getString(R.string.score))) {
                 fragment = ScoreFragment.newInstance();
+                old = getSupportFragmentManager().findFragmentByTag(SCORE_FRAGMENT);
+                tag = SCORE_FRAGMENT;
             } else
                 throw new IllegalArgumentException();
-
+            if(old != null){
+                getSupportFragmentManager().beginTransaction().remove(old).commit();
+            }
             ft.replace(R.id.fragment_container, fragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.addToBackStack(null);
+            ft.addToBackStack(tag);
             ft.commit();
         } else {
             Intent intent = new Intent(this, SecondActivity.class);
