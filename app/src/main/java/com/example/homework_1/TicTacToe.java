@@ -25,7 +25,7 @@ public class TicTacToe {
         isGaming = true;
         firstPlayerTurn = true;
         countRound = 0;
-
+        gameField = null;
     }
 
     public boolean checkForWin(String[][] field) {

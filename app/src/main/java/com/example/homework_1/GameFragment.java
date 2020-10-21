@@ -53,8 +53,8 @@ public class GameFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static GameFragment newInstance() {
-        ticTacToe = new TicTacToe();
+    public static GameFragment newInstance(TicTacToe ttt) {
+        ticTacToe = ttt;
         Bundle args = new Bundle();
         GameFragment fragment = new GameFragment();
         fragment.setArguments(args);
@@ -64,7 +64,7 @@ public class GameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if(ticTacToe == null)
+        if (ticTacToe == null)
             ticTacToe = new TicTacToe();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game, container, false);
@@ -112,18 +112,20 @@ public class GameFragment extends Fragment {
         setImageViewListener(secondIconView);
 
         //Восстановление состояния из ticTacToe
-            addingScore(firstPlayerScore, ticTacToe.getFirst_score());
-            addingScore(secondPlayerScore, ticTacToe.getSecond_score());
-            if (ticTacToe.getGameField() != null) {
-                String[][] field = ticTacToe.getGameField();
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        buttons[i][j].setText(field[i][j]);
-                    }
+        addingScore(firstPlayerScore, ticTacToe.getFirst_score());
+        addingScore(secondPlayerScore, ticTacToe.getSecond_score());
+        if (ticTacToe.getGameField() != null) {
+            String[][] field = ticTacToe.getGameField();
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    buttons[i][j].setText(field[i][j]);
                 }
+            }
+            if (ticTacToe.getFirstPlayerIcon() != null)
+                firstIconView.setImageBitmap(ticTacToe.getFirstPlayerIcon());
 
-            firstIconView.setImageBitmap(ticTacToe.getFirstPlayerIcon());
-            secondIconView.setImageBitmap(ticTacToe.getSecondPlayerIcon());
+            if (ticTacToe.getSecondPlayerIcon() != null)
+                secondIconView.setImageBitmap(ticTacToe.getSecondPlayerIcon());
         }
         super.onViewCreated(view, savedInstanceState);
     }
@@ -131,16 +133,31 @@ public class GameFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         //сохранение текущего состояния
-        String[][] field = new String[3][3];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                field[i][j] = buttons[i][j].getText().toString();
+        //if (ticTacToe.getCountRound() != 0) {
+            String[][] field = new String[3][3];
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    field[i][j] = buttons[i][j].getText().toString();
+                }
             }
-        }
-        ticTacToe.saveFieldInstance(field);
+            ticTacToe.saveFieldInstance(field);
+        //}
         super.onSaveInstanceState(outState);
     }
 
+    @Override
+    public void onDestroyView() {
+        if (ticTacToe.getCountRound() != 0) {
+            String[][] field = new String[3][3];
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    field[i][j] = buttons[i][j].getText().toString();
+                }
+            }
+            ticTacToe.saveFieldInstance(field);
+        }
+        super.onDestroyView();
+    }
 
     //Обработчик нажатия на кнопку игры
     private void addListener(@NonNull final Button button) {
@@ -169,7 +186,7 @@ public class GameFragment extends Fragment {
                         }
                     } else if (ticTacToe.getCountRound() == 9) {
                         draw();
-                    } else{
+                    } else {
                         ticTacToe.changeTurn();
                     }
                 } else {

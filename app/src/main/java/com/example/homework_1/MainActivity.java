@@ -11,6 +11,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity implements MenuFragment.Listener {
     private final String GAME_FRAGMENT = "GAME_TAG";
     private final String SCORE_FRAGMENT = "SCORE_TAG";
+    private TicTacToe ticTacToe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
             Fragment old = null;
             String tag = null;
             if (text.equals(getResources().getString(R.string.start))) {
-                fragment = GameFragment.newInstance();
+                ticTacToe = new TicTacToe();
+                fragment = GameFragment.newInstance(ticTacToe);
                 old = getSupportFragmentManager().findFragmentByTag(GAME_FRAGMENT);
                 tag = GAME_FRAGMENT;
             } else if (text.equals(getResources().getString(R.string.score))) {
@@ -37,10 +40,12 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
                 tag = SCORE_FRAGMENT;
             } else
                 throw new IllegalArgumentException();
+
             if(old != null){
                 getSupportFragmentManager().beginTransaction().remove(old).commit();
             }
-            ft.replace(R.id.fragment_container, fragment);
+
+            ft.replace(R.id.fragment_container, fragment, tag);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.addToBackStack(tag);
             ft.commit();
@@ -50,4 +55,6 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
             startActivity(intent);
         }
     }
+
+
 }

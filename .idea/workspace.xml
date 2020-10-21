@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/GameFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/GameFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/SecondActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/SecondActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +25,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_7_API_25" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="P6LDU16B18001158" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -66,8 +67,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_7_API_25" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-20T05:56:11.960Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="P6LDU16B18001158" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-21T08:55:58.054Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -210,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603257958244</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Перенесена логика игры в другой класс">
+      <created>1603264479797</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603264479797</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,17 +240,18 @@
     <MESSAGE value="Чекпоинт" />
     <MESSAGE value="При перевероте не открывается клавиатура" />
     <MESSAGE value="Не сохраняется картинка" />
-    <option name="LAST_COMMIT_MESSAGE" value="Не сохраняется картинка" />
+    <MESSAGE value="Перенесена логика игры в другой класс" />
+    <option name="LAST_COMMIT_MESSAGE" value="Перенесена логика игры в другой класс" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Notifications" timestamp="1603183061455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603183061455" />
-    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1603261385849">
+    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1603270741350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603261385849" />
+    <state x="757" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603270741350" />
     <state x="804" y="248" key="#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080" timestamp="1602749670846" />
     <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog" timestamp="1603183678530">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -253,35 +262,51 @@
     </state>
     <state x="813" y="356" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603189842553" />
     <state x="858" y="370" key="AndroidCreateXmlResourceDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1602753082350" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1603257956070">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1603264478601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603257956070" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603264478601" />
     <state x="731" y="284" key="FileChooserDialogImpl" timestamp="1603193262638">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="731" y="284" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603193262638" />
     <state x="779" y="295" key="FileChooserDialogImpl/78.0.1842.1080@78.0.1842.1080" timestamp="1602740296316" />
-    <state width="1877" height="317" key="GridCell.Tab.0.bottom" timestamp="1603264346937">
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1603272297748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603264346937" />
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
     <state width="1799" height="295" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368350" />
-    <state width="1877" height="317" key="GridCell.Tab.0.center" timestamp="1603264346937">
+    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1603272297748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603264346937" />
+    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
     <state width="1799" height="295" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368350" />
-    <state width="1877" height="317" key="GridCell.Tab.0.left" timestamp="1603264346937">
+    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1603272297747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603264346937" />
+    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297747" />
     <state width="1799" height="295" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368349" />
-    <state width="1877" height="317" key="GridCell.Tab.0.right" timestamp="1603264346937">
+    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1603272297748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603264346937" />
+    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
     <state width="1799" height="295" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368350" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1603272297748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1603272297748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1603272297748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1603272297748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1603169278571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -303,5 +328,16 @@
     </state>
     <state x="609" y="226" width="701" height="653" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603189689120" />
     <state x="662" y="235" width="672" height="678" key="search.everywhere.popup/78.0.1842.1080@78.0.1842.1080" timestamp="1602755709942" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="ticTacToe" language="JAVA" />
+        <watch expression="buttons" language="JAVA" />
+        <watch expression="buttons[1][0].getText()" language="JAVA" />
+        <watch expression="buttons[0][0].getText()" language="JAVA" />
+        <watch expression="ticTacToe" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
