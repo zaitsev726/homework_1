@@ -9,4 +9,6 @@
     <string name="Player1">Player 1</string>
     <string name="start_score">: 0</string>
     <string name="Player2">Player 2</string>
+    <string name="chose">Chose application</string>
+
 </resources>
