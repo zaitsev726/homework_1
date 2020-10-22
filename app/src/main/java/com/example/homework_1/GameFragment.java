@@ -72,7 +72,7 @@ public class GameFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+        super.onViewCreated(view, savedInstanceState);
         if (ticTacToe.getFirstPlayerName() == null) {
             ticTacToe.setFirstPlayerName(getResources().getString(R.string.Player1));
         }
@@ -127,26 +127,32 @@ public class GameFragment extends Fragment {
             if (ticTacToe.getSecondPlayerIcon() != null)
                 secondIconView.setImageBitmap(ticTacToe.getSecondPlayerIcon());
         }
-        super.onViewCreated(view, savedInstanceState);
+
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         //сохранение текущего состояния
+        super.onSaveInstanceState(outState);
         //if (ticTacToe.getCountRound() != 0) {
+        if(buttons != null){
             String[][] field = new String[3][3];
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    field[i][j] = buttons[i][j].getText().toString();
+                    if(buttons[i][j]!=null)
+                        field[i][j] = buttons[i][j].getText().toString();
+                    else
+                        return;
                 }
             }
             ticTacToe.saveFieldInstance(field);
-        //}
-        super.onSaveInstanceState(outState);
+        }
+
     }
 
     @Override
     public void onDestroyView() {
+        super.onDestroyView();
         if (ticTacToe.getCountRound() != 0) {
             String[][] field = new String[3][3];
             for (int i = 0; i < 3; i++) {
@@ -156,7 +162,7 @@ public class GameFragment extends Fragment {
             }
             ticTacToe.saveFieldInstance(field);
         }
-        super.onDestroyView();
+
     }
 
     //Обработчик нажатия на кнопку игры

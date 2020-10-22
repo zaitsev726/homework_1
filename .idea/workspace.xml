@@ -16,16 +16,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/GameFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/GameFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/SecondActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/SecondActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/homework_1/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="P6LDU16B18001158" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_7_API_25" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -218,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603264479797</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Вроде работает на телефоне и на планшете">
+      <created>1603272905178</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603272905178</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,7 +245,8 @@
     <MESSAGE value="При перевероте не открывается клавиатура" />
     <MESSAGE value="Не сохраняется картинка" />
     <MESSAGE value="Перенесена логика игры в другой класс" />
-    <option name="LAST_COMMIT_MESSAGE" value="Перенесена логика игры в другой класс" />
+    <MESSAGE value="Вроде работает на телефоне и на планшете" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вроде работает на телефоне и на планшете" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Notifications" timestamp="1603183061455">
@@ -262,59 +267,59 @@
     </state>
     <state x="813" y="356" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603189842553" />
     <state x="858" y="370" key="AndroidCreateXmlResourceDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1602753082350" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1603264478601">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1603272904028">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603264478601" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272904028" />
     <state x="731" y="284" key="FileChooserDialogImpl" timestamp="1603193262638">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="731" y="284" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603193262638" />
     <state x="779" y="295" key="FileChooserDialogImpl/78.0.1842.1080@78.0.1842.1080" timestamp="1602740296316" />
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1603272297748">
+    <state width="1877" height="317" key="GridCell.Tab.0.bottom" timestamp="1603278148610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="317" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603278148610" />
     <state width="1799" height="295" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368350" />
-    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1603272297748">
+    <state width="1877" height="317" key="GridCell.Tab.0.center" timestamp="1603278148610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="317" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603278148610" />
     <state width="1799" height="295" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368350" />
-    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1603272297747">
+    <state width="1877" height="317" key="GridCell.Tab.0.left" timestamp="1603278148609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297747" />
+    <state width="1877" height="317" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603278148609" />
     <state width="1799" height="295" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368349" />
-    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1603272297748">
+    <state width="1877" height="317" key="GridCell.Tab.0.right" timestamp="1603278148610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="317" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603278148610" />
     <state width="1799" height="295" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1602756368350" />
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1603272297748">
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1603272905720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
-    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1603272297748">
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272905720" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1603272905719">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
-    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1603272297748">
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272905719" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1603272905719">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
-    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1603272297748">
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272905719" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1603272905720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272297748" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603272905720" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1603169278571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603169278571" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603258060977">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603330754844">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603258060977" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603330754844" />
     <state x="170" y="92" width="1658" height="896" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602742983167">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
