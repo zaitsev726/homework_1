@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.List
                 old = getSupportFragmentManager().findFragmentByTag(GAME_FRAGMENT);
                 tag = GAME_FRAGMENT;
             } else if (text.equals(getResources().getString(R.string.score))) {
-                fragment = ScoreFragment.newInstance();
+                fragment = ScoreFragment.newInstance(ticTacToe);
                 old = getSupportFragmentManager().findFragmentByTag(SCORE_FRAGMENT);
                 tag = SCORE_FRAGMENT;
             } else

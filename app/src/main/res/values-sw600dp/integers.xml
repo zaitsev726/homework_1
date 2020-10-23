@@ -3,4 +3,5 @@
     <integer name="maxLength">
         12
     </integer>
+    <string name="scoreSize">35sp</string>
 </resources>

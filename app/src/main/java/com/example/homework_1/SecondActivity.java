@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 public class SecondActivity extends AppCompatActivity {
     public static final String FRAGMENT_NAME = "Fragment_name";
-    private TicTacToe ticTacToe;
+    private static TicTacToe ticTacToe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class SecondActivity extends AppCompatActivity {
                 fragment = GameFragment.newInstance(ticTacToe);
             }
         } else if (fragmentName.equals(getResources().getString(R.string.score))){
-            if(savedInstanceState == null) {
-                fragment = ScoreFragment.newInstance();
-            }
+          //  if(savedInstanceState == null) {
+                fragment = ScoreFragment.newInstance(ticTacToe);
+            //}
         } else
             throw new IllegalArgumentException();
 
